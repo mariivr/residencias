@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Inventario</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #fffaaf;
+        text-align: center;
+    }
+
+    .table-title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background-color: #fa9643;
+    }
+
+    .total-row {
+        font-weight: bold;
+    }
+
+    td[contenteditable="true"] {
+        background-color: #f9f9f9;
+    }
+
+
+
+    button:active {
+        background-color: black;
+        color: #fa9643;
+    }
+
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .btn-danger {
+        color: white;
+        background-color: #dc3545;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .fas.fa-trash-alt {
+        font-size: 1.2rem;
+    }
+
+    .action-icons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .action-icons i {
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .action-icons .trash {
+        color: rgb(247, 67, 67);
+    }
+
+    .edit-icon {
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #007bff;
+    }
+
+    .edit-icon:hover {
+        color: #0056b3;
+    }
+
+    .edit-field {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+
+    <!-- header -->
+
+    <%- include('../components/headerDos', { user: user }) %>
+        <% console.log('User:', user); %>
+            <!-- end header -->
+
+
+
+            <!-- breadcrumb-section -->
+            <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <div class="breadcrumb-text">
+                                <p></p>
+                                <h1>Inventario</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end breadcrumb section -->
+
+            <div class="container py-5">
+
+                <table id="materiales" class="table mt-4">
+                    <thead>
+
+                        <tr>
+                            <th></th>
+                            <th>Materiales</th>
+                            <th>Cantidad</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% materiales.forEach(material=> { %>
+                            <tr>
+                                <form action="/api/materiales/modificar-material/<%= material.id %>" method="POST">
+                                    <td style="width: 2%; padding: 0.5rem; font-size: 1rem;">
+                                        <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                            <i class="fas fa-pencil-alt" style="color: blue;"></i>
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" name="material" value="<%= material.material %>"
+                                            class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="cantidad" value="<%= material.cantidad %>"
+                                            class="form-control">
+                                    </td>
+
+                                </form>
+                                <td style="width: 2%; padding: 0.5rem; font-size: 1rem;">
+                                    <form action="/api/materiales/eliminar-material/<%= material.id %>" method="POST"
+                                        style="display:inline;">
+                                        <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                            <i class="fas fa-trash" style="color: red;"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+
+                <!-- Formulario para agregar nuevos registros -->
+                 <br>
+                <h3 class="pb-3">Agregar Nuevo Material</h3>
+                <form id="nuevo-material-form" class="form-group" method="POST" action="/api/materiales">
+                    <div class="form-group">
+                        <label for="material">Material:</label>
+                        <input type="text" class="form-control bg-transparent p-4" id="material" required
+                            style="width: 50%; padding: 0.5rem; font-size: 1rem; box-sizing: border-box;">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" class="form-control bg-transparent p-4" id="cantidad" required
+                            style="width: 50%; padding: 0.5rem; font-size: 1rem; box-sizing: border-box;">
+                    </div>
+                    <div class="contact-form">
+                        <button type="submit" id="agregar" class="table-title"
+                            style=" border-radius: 80px; padding: 8px 16px; font-size: 14px; box-sizing: border-box; ">Agregar
+                            Material</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+            </div>
+
+
+
+            </div>
+</body>
+<!-- Footer -->
+<%- include('../components/footer') %>
+    <!-- End Footer -->
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#nuevo-material-form').submit(function (event) {
+                event.preventDefault();
+                const material = $('#material').val();
+                const cantidad = $('#cantidad').val();
+
+                // Validar que los campos no estén vacíos
+                if (material.trim() === '' || cantidad.trim() === '') {
+                    alert('Por favor, complete todos los campos.');
+                    return;
+                }
+
+                // Enviar datos al servidor
+                fetch('/api/materiales', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ material, cantidad }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+
+                        // Agregar nueva fila a la tabla de materiales con los iconos
+                        $('#materiales tbody').append(`
+                <tr>
+                    <form action="/api/materiales/modificar-material/${data.id}" method="POST">
+                                                <td style="width: 2%; padding: 0.5rem; font-size: 1rem;">
+                            <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                <i class="fas fa-pencil-alt" style="color: blue;"></i>
+                            </button>
+                        </td>
+
+                        <td>
+                            <input type="text" name="material" value="${material}" class="form-control">
+                        </td>
+                        <td>
+                            <input type="number" name="cantidad" value="${cantidad}" class="form-control">
+                        </td>
+
+                    </form>
+                    <td  style="width: 2%; padding: 0.5rem; font-size: 1rem;">
+                        <form action="/api/materiales/eliminar-material/${data.id}" method="POST" style="display:inline;">
+                            <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                <i class="fas fa-trash" style="color: red;"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            `);
+
+                        // Limpiar campos del formulario
+                        $('#material').val('');
+                        $('#cantidad').val('');
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('Error al agregar el material.');
+                    });
+            });
+        });
+
+    </script>
+
+
+
+</html>

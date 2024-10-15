@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Login - O N C E Horno & Bar</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+<!-- fontawesome -->
+<link rel="stylesheet" href="assets/css/all.min.css">
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+<!-- owl carousel -->
+<link rel="stylesheet" href="assets/css/owl.carousel.css">
+
+<!-- magnific popup -->
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+<!-- animate css -->
+<link rel="stylesheet" href="assets/css/animate.css">
+
+<!-- mean menu css -->
+<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
+<!-- main style -->
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- responsive -->
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- AJAX CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<style>
+    .form-group label {
+        font-size: 1.2rem; 
+    }
+
+    .form-group input {
+        font-size: 1.1rem; /* Tamaño del texto dentro del campo de entrada */
+        padding: 0.9rem; /* Espaciado interno del campo de entrada */
+        border-radius: 0.2rem; /* Bordes redondeados */
+        border: 2px solid #ccc; /* Color del borde del campo */
+    }
+
+    .form-group {
+        margin-bottom: 2rem; /* Espacio entre campos */
+    }
+
+    .contact-form input[type="submit"] {
+       
+        font-size: 1rem; /* Tamaño de la fuente del botón */
+
+
+    }
+
+    .contact-form input[type="submit"]:hover {
+        background-color: #000000; /* Color de fondo del botón al pasar el cursor */
+    }
+</style>
+
+<body>
+    <!-- header -->
+    <%- include('../components/header') %>
+        <!-- end header -->
+
+
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p></p>
+                            <h1>Login</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+
+        <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 pb-5">
+                        <form class="mb-5" action="/login" method="POST">
+                            <h2 class="pb-3"><span class="orange-text">Login</span> para empleados</h2>
+                            <div class="form-group">
+                                <label for="username">Usuario</label>
+                                <input type="text" class="form-control bg-transparent p-4" name="username" id="username"
+                                    placeholder="Ingresa tu usuario" required>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input type="password"class="form-control bg-transparent p-4"  name="password" id="password"
+                                    placeholder="Ingresa tu contraseña" required>
+                            </div>
+
+                            <br>
+
+                            <div class="contact-form" style="text-align: center;">
+                                <p><input class="" type="submit" value="Iniciar sesión"></p>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- footer -->
+        <%- include('../components/footer') %>
+            <!-- end footer -->
+
+            <!-- jquery -->
+            <script src="assets/js/jquery-1.11.3.min.js"></script>
+            <!-- bootstrap -->
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <!-- count down -->
+            <script src="assets/js/jquery.countdown.js"></script>
+            <!-- isotope -->
+            <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+            <!-- waypoints -->
+            <script src="assets/js/waypoints.js"></script>
+            <!-- owl carousel -->
+            <script src="assets/js/owl.carousel.min.js"></script>
+            <!-- magnific popup -->
+            <script src="assets/js/jquery.magnific-popup.min.js"></script>
+            <!-- mean menu -->
+            <script src="assets/js/jquery.meanmenu.min.js"></script>
+            <!-- sticker js -->
+            <script src="assets/js/sticker.js"></script>
+            <!-- main js -->
+            <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

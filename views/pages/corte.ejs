@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Corte de caja</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #fffaaf;
+        text-align: center;
+    }
+
+    .table-title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background-color: #fa9643;
+    }
+
+    .total-row {
+        font-weight: bold;
+    }
+
+    td[contenteditable="true"] {
+        background-color: #f9f9f9;
+    }
+
+    .contact-form button {
+        background-color: #fa9643;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 10px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:active {
+        background-color: black;
+        color: #fa9643;
+    }
+</style>
+
+<body>
+    <!-- header -->
+    <%- include('../components/headerDos', { user: user }) %>
+        <!-- end header -->
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p></p>
+                            <h1>Corte de caja</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+
+        <div class="container py-5">
+
+            <!-- Tabla de Gastos -->
+            <table id="gastos">
+                <tr>
+                    <th colspan="2" class="table-title">Gastos</th>
+                </tr>
+                <tr>
+                    <th>Gasto</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+
+                <!-- Elemento para mostrar el total de los gastos -->
+                <div>
+                    <h5 class="pb-3">Total de gastos en el día: <span id="total-gastos">0</span></h5>
+                </div>
+
+            </table>
+
+
+            <div class="contact-form">
+                <button id="agregarGastoBtn" class="table-title">Agregar Gasto</button>
+            </div>
+            <br><br>
+
+            <!-- Tabla de Corte -->
+            <table id="corte">
+                <tr>
+                    <th colspan="3" class="table-title">Corte</th>
+                </tr>
+                <tr>
+                    <th>Denominación</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>$1000</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$500</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$200</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$100</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$50</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$20</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$10</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$5</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$2</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$1</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr>
+                    <td>$0.5</td>
+                    <td contenteditable="true" class="cantidad"></td>
+                    <td class="subtotal"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">SubTotal</td>
+                    <td id="subtotal-corte"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Pago con terminales</td>
+                    <td contenteditable="true" id="pago-terminales"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Total</td>
+                    <td id="total-corte"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Venta</td>
+                    <td contenteditable="true" id="venta"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Diferencia</td>
+                    <td id="gran-total"></td>
+                </tr>
+            </table>
+
+            <div class="contact-form">
+                <button class="table-title" id="generatePDFBtn">Guardar como PDF</button>
+            </div>
+
+        </div>
+</body>
+<!-- footer -->
+<%- include('../components/footer') %>
+    <!-- end footer -->
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+
+
+    <script>
+        // Asignar la función al botón de agregar gasto
+        document.getElementById('agregarGastoBtn').addEventListener('click', agregarFilaGastos);
+
+        // Agregar nueva fila a la tabla de gastos
+        function agregarFilaGastos() {
+            const tabla = document.getElementById('gastos');
+            const nuevaFila = tabla.insertRow();
+            nuevaFila.innerHTML = `
+                <td contenteditable="true"> </td>
+                <td contenteditable="true"></td>
+            `;
+        }
+
+        // Manejar el cálculo automático de gastos y totales del corte
+        document.addEventListener('input', function (e) {
+            if (e.target.closest('#gastos td[contenteditable="true"]')) {
+                calcularTotalGastos();
+            } else if (e.target.classList.contains('cantidad') || e.target.id === 'pago-terminales') {
+                calcularTotalCorte();
+            } else if (e.target.id === 'venta') {
+                calcularGranTotal();
+            }
+        });
+
+        // Navegar con teclas en la tabla de gastos
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                moverCursor(e);
+            }
+        });
+
+        function calcularTotalGastos() {
+            const filas = document.querySelectorAll('#gastos tr:not(:first-child)');
+            let total = 0;
+            filas.forEach(fila => {
+                const valor = parseFloat(fila.cells[1].innerText) || 0;
+                total += valor;
+            });
+            document.getElementById('total-gastos').innerText = total.toFixed(2);
+        }
+
+        function calcularTotalCorte() {
+            const filas = document.querySelectorAll('#corte .cantidad');
+            const denominaciones = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5];
+            let subtotal = 0;
+            filas.forEach((fila, index) => {
+                const cantidad = parseFloat(fila.innerText) || 0;
+                const subtotalCelda = cantidad * denominaciones[index];
+                fila.closest('tr').querySelector('.subtotal').innerText = subtotalCelda.toFixed(2);
+                subtotal += subtotalCelda;
+            });
+
+            const pagoTerminales = parseFloat(document.getElementById('pago-terminales').innerText) || 0;
+            const total = subtotal + pagoTerminales;
+
+            document.getElementById('subtotal-corte').innerText = subtotal.toFixed(2);
+            document.getElementById('total-corte').innerText = total.toFixed(2);
+
+            calcularGranTotal();
+        }
+
+        function calcularGranTotal() {
+            const totalCorte = parseFloat(document.getElementById('total-corte').innerText) || 0;
+            const venta = parseFloat(document.getElementById('venta').innerText) || 0;
+            const granTotal = totalCorte - venta;
+            document.getElementById('gran-total').innerText = granTotal.toFixed(2);
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                moverCursorConEnter(e);
+            }
+        });
+
+        function moverCursorConEnter(e) {
+            const currentCell = e.target.closest('td');
+            if (!currentCell) return;
+
+            const currentRow = currentCell.closest('tr');
+            const currentRowIndex = Array.from(currentRow.parentNode.rows).indexOf(currentRow);
+            const currentCellIndex = currentCell.cellIndex;
+            const nextRow = currentRow.parentNode.rows[currentRowIndex + 1];
+
+            if (nextRow) {
+                e.preventDefault();
+                const nextCell = nextRow.cells[currentCellIndex];
+                nextCell.focus();
+            }
+        }
+
+
+        function moverCursor(e) {
+            const { key, target } = e;
+            const currentCell = target.closest('td');
+            if (!currentCell) return;
+
+            const currentRow = currentCell.closest('tr');
+            let targetCell;
+
+            switch (key) {
+                case 'ArrowRight':
+                    targetCell = currentCell.nextElementSibling;
+                    break;
+                case 'ArrowLeft':
+                    targetCell = currentCell.previousElementSibling;
+                    break;
+                case 'ArrowUp':
+                    targetCell = currentRow.previousElementSibling?.cells[currentCell.cellIndex];
+                    break;
+                case 'ArrowDown':
+                    targetCell = currentRow.nextElementSibling?.cells[currentCell.cellIndex];
+                    break;
+            }
+
+            if (targetCell) {
+                e.preventDefault();
+                targetCell.focus();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const { jsPDF } = window.jspdf;
+
+        function generatePDF() {
+            const doc = new jsPDF();
+            doc.text('Corte de Caja', 10, 10);
+
+            doc.autoTable({ html: '#gastos', startY: 20 });
+            const finalY = doc.lastAutoTable.finalY || 30;
+            doc.autoTable({ html: '#corte', startY: finalY + 10 });
+
+            // Generar PDF como URL de datos
+            const pdfOutput = doc.output('datauristring');
+
+            // Abrir el PDF en una nueva ventana
+            window.open(pdfOutput, '_blank');
+        }
+
+        document.getElementById('generatePDFBtn').addEventListener('click', generatePDF);
+    });
+    </script>
+
+
+
+
+
+</html>

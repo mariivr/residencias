@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Reservar - O N C E Horno & Bar</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<style>
+    .contact-form input[type="submit"]:hover {
+        background-color: #000000;
+        /* Color de fondo del botón al pasar el cursor */
+    }
+</style>
+
+<body>
+
+    <!-- header -->
+    <%- include('../components/header') %>
+        <!-- end header -->
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p></p>
+                            <h1>Reservaciones</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+
+        <div class="container-fluid pt-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="pb-3">¡Ahora reserva tu mesa en línea!</h2>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-6 pb-5">
+                        <img src="assets/img/reserva.jpg" alt="" width="500px">
+                    </div>
+                    <div class="col-md-6 pb-5">
+                        <h3 class="orange-text">Recuerda nuestro horario: </h3>
+                        <div>
+                            <p>Martes a Sábado de <b> <i class="far fa-clock"></i>1:00 PM - 10:00 PM</b> & Domingo de <b> <i class="far fa-clock"></i>1:00 PM - 7.00 PM</b></p>
+                        </div>
+                        <form class="mb-5" action="/reservar" method="POST">
+                            <br>
+                            <div class="form-group">
+                                <input type="text" name="nombre" class="form-control bg-transparent p-4"
+                                    placeholder="Nombre" required="required" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control bg-transparent p-4"
+                                    placeholder="Correo Electrónico" required="required">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" name="telefono" class="form-control bg-transparent p-4"
+                                    placeholder="Número de teléfono" required="required" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="date" name="fecha" class="form-control bg-transparent p-4" placeholder="Fecha" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="time" name="hora" class="form-control bg-transparent p-4" placeholder="Hora" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="personas" class="form-control bg-transparent p-4" placeholder="Número de personas" required="required"  style="width: 100%; padding: 0.5rem; font-size: 1rem; box-sizing: border-box;">
+                            </div>
+
+                            <br>
+                            <div class="contact-form">
+                                <p><input class="" type="submit" value="Reservar"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <%- include('../components/footer') %>
+            <!-- end footer -->
+
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Moment.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+            <script>
+                // Inicializa Flatpickr para la fecha
+                flatpickr("#date", {
+                    dateFormat: "Y-m-d" // Formato de fecha
+                });
+            
+                // Inicializa Flatpickr para la hora
+                flatpickr("#time", {
+                    enableTime: true,
+                    noCalendar: true,
+                    dateFormat: "H:i" // Formato de hora
+                });
+            </script>
+</body>
+
+</html>

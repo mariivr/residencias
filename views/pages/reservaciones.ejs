@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Reservaciones</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            vertical-align: middle; /* Alinea el contenido verticalmente en el centro */
+            text-align: center; /* Alinea el contenido horizontalmente en el centro */
+        }
+
+        th {
+            background-color: #fa9643;
+            text-align: center;
+        }
+
+        .table-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background-color: #fa9643;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+
+        td[contenteditable="true"] {
+            background-color: #f9f9f9;
+        }
+
+        .contact-form button {
+            background-color: #fa9643;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:active {
+            background-color: black;
+            color: #fa9643;
+        }
+
+        .action-icons i {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .action-icons .trash {
+            color: rgb(247, 67, 67);
+        }
+
+        .action-icons .check {
+            color: rgb(28, 240, 28);
+        }
+
+        .table-action-icons i {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .table-action-icons .trash {
+            color: red;
+        }
+
+        .table-action-icons .check {
+            color: green;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <%- include('../components/headerDos', { user: user }) %>
+        <!-- end header -->
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p></p>
+                            <h1>Reservaciones</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+         <br>
+        <div class="container">
+            <form id="filter-form"  class="form-group" >
+                <div class="form-group d-flex align-items-center">
+                    <label for="fecha" class="bg-transparent" style="margin-right: 10px; font-weight: bold;">Filtrar por fecha:</label>
+                    <input class="form-control" type="date" id="fecha" style="width: 12%; padding: 0.5rem; font-size: 1.1rem; box-sizing: border-box; margin-right: 10px;">
+                    <div class="contact-form">
+                        <button type="button" class="table-title" onclick="filterByDate()"  style="padding: 8px 16px; font-size: 14px; box-sizing: border-box; ">Actualizar</button>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <table class="table mt-4" id="reservaciones-table">
+
+                <thead>
+                    <tr> 
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Personas</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% reservas.forEach(reserva=> { %>
+                        <tr class="reserva-row" data-fecha="<%= reserva.fecha %>">
+                            <td>
+                                <!-- Ícono de eliminar -->
+                                <form action="/reservaciones/eliminar" method="POST" style="display: inline;">
+                                    <input type="hidden" name="id" value="<%= reserva.id %>">
+                                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                        <i class="fas fa-trash table-action-icons trash" style="color: red;"></i>
+                                    </button>
+                                </form>
+
+                            </td>
+                            <td>
+                                <%= reserva.nombre %>
+                            </td>
+                            <td>
+                                <%= reserva.email %>
+                            </td>
+                            <td>
+                                <%= reserva.telefono %>
+                            </td>
+                            <td>
+                                <%= reserva.fecha %>
+                            </td>
+                            <td>
+                                <%= reserva.hora %>
+                            </td>
+                            <td>
+                                <%= reserva.personas %>
+                            </td>
+                            <td>
+                                <!-- Checkbox para marcar como realizada -->
+                                <form action="/reservaciones/realizar" method="POST" style="display: inline;">
+                                    <input type="hidden" name="id" value="<%= reserva.id %>">
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" name="realizada" id="checkbox-<%= reserva.id %>"
+                                            onchange="this.form.submit()" <%=reserva.realizada ? 'checked' : '' %>>
+                                        <label for="checkbox-<%= reserva.id %>"></label>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+</body>
+
+<!-- footer -->
+<%- include('../components/footer') %>
+    <!-- end footer -->
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fechaInput = document.getElementById('fecha');
+            const rows = document.querySelectorAll('#reservaciones-table .reserva-row');
+
+            function filterByDate() {
+                const fecha = fechaInput.value;
+                rows.forEach(row => {
+                    if (fecha === '' || row.dataset.fecha === fecha) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            document.querySelector('button[type="button"]').addEventListener('click', filterByDate);
+        });
+    </script>
+
+</html>

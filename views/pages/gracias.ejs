@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- title -->
+    <title>Gracias por Reservar - O N C E Horno & Bar</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- AJAX CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+
+
+<body>
+
+    <!-- header -->
+    <%- include('../components/header') %>
+        <!-- end header -->
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p></p>
+                            <h1>¡Gracias por Reservar!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+
+        <div class="full-height-section error-section">
+            <div class="full-height-tablecell">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <div class="error-text">
+                                <i class="far fa-smile"></i>
+                                <h1>¡Tu reservación ha sido enviada!</h1>
+                                <p>
+                                    Nos pondremos en contacto contigo lo antes posible para confirmar tu reservación.
+                                    <br><br>
+                                    <b> IMPORTANTE:</b> Se tiene una tolerancia de 10 minutos. En caso de cualquier inconveniente, también puedes llamarnos al <b>452 688 2108</b>.
+                                </p>
+                                <a href="/" class="boxed-btn">Volver al inicio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- end error section -->
+
+        <!-- footer -->
+        <%- include('../components/footer') %>
+            <!-- end footer -->
+
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Moment.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+            <script>
+                // Inicializa Flatpickr para la fecha
+                flatpickr("#date", {
+                    dateFormat: "Y-m-d" // Formato de fecha
+                });
+            
+                // Inicializa Flatpickr para la hora
+                flatpickr("#time", {
+                    enableTime: true,
+                    noCalendar: true,
+                    dateFormat: "H:i" // Formato de hora
+                });
+            </script>
+
+
+</body>
+
+
+
+</html>

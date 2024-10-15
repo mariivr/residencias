@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Opciones</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- Logo -->
+                        <div class="site-logo">
+                            <a href="/menu">
+                                <img src="assets/img/logo1.png" alt="ONCE Horno & Bar">
+                            </a>
+                        </div>
+                        <!-- Logo -->
+
+                        <!-- Menu Start -->
+                        <nav class="main-menu">
+                            <ul>
+                                <% if (user.rol === 'admin') { %>
+                                    <li><a href="/corte">Corte</a></li>
+                                    <li><a href="/facturaciones">Facturas</a></li>
+                                <% } %>
+
+                                <% if (user.rol === 'admin' || user.rol === 'gerente') { %>
+                                    <li><a href="/inventario">Inventario</a></li>
+                                <% } %>
+
+                                <% if (user.rol === 'admin' || user.rol === 'gerente' || user.rol === 'empleado') { %>
+                                    <li><a href="/reservaciones">Reservaciones</a></li>
+                                <% } %>
+
+                                <!--<% if (user.rol === 'admin') { %>
+                                    <li><a href="api/usuarios">Usuarios</a></li>
+                                <% } %>-->
+
+                                <li><a href="/logout">Cerrar sesión</a></li>
+                            </ul>
+                        </nav>
+                        <div class="mobile-menu"></div>
+                        <!-- Menu End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Breadcrumb Section -->
+    <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('assets/img/bg.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p></p>
+                        <h1>Menú</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Menu Section -->
+    <div class="container py-5">
+        <div class="row">
+            <% if (user.rol === 'admin') { %>
+                <div class="col-md-3 mb-4">
+                    <a href="/corte">
+                        <img src="assets/img/m1.jpg" class="card-img-top" alt="Corte">
+                        <div class="card-body">
+                            <h5 class="card-title">Corte</h5>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+
+            <% if (user.rol === 'admin') { %>
+                <div class="col-md-3 mb-4">
+                    <a href="/facturaciones">
+                        <img src="assets/img/m2.jpg" class="card-img-top" alt="Facturación">
+                        <div class="card-body">
+                            <h5 class="card-title">Facturación</h5>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+
+            <% if (user.rol === 'admin' || user.rol === 'gerente') { %>
+                <div class="col-md-3 mb-4">
+                    <a href="/inventario">
+                        <img src="assets/img/m3.jpg" class="card-img-top" alt="Inventario">
+                        <div class="card-body">
+                            <h5 class="card-title">Inventario</h5>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+
+            <% if (user.rol === 'admin' || user.rol === 'gerente' || user.rol === 'empleado') { %>
+                <div class="col-md-3 mb-4">
+                    <a href="/reservaciones">
+                        <img src="assets/img/m4.jpg" class="card-img-top" alt="Reservaciones">
+                        <div class="card-body">
+                            <h5 class="card-title">Reservaciones</h5>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- End Menu Section -->
+
+    <!-- Footer -->
+    <%- include('../components/footer') %>
+    <!-- End Footer -->
+
+    <!-- JavaScript Libraries -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.countdown.js"></script>
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <script src="assets/js/waypoints.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/sticker.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
